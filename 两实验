@@ -1,0 +1,66 @@
+package Test;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class charfilecopy {
+    public static void main(String[] args) throws IOException {
+        FileReader frs = null;
+        FileWriter fws = null;
+        try {
+            frs = new FileReader("E:\\yuan\\name.txt");
+            fws = new FileWriter("name.txt");
+            char[] ch = new char[1024];
+            int charlen = 0;
+            while ((charlen = frs.read(ch)) != -1) {
+                fws.write(ch);
+                fws.flush();
+            }
+        } finally {
+            try {
+                frs.close();
+                fws.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
+
+
+package example;
+
+import java.io.*;
+
+public class bytefilecopy {
+    public static void main(String[] args) {
+        FileInputStream fileoutput = null;
+        BufferedInputStream is=null;
+        BufferedOutputStream os=null;
+        try {
+            is = new BufferedInputStream(new FileInputStream("E:\\yuan\\flower.jpg"));
+            os = new BufferedOutputStream(new FileOutputStream("flower.jpg"));
+            int len = 0;
+            byte[] bys=new byte[1024];
+            while ((len=is.read(bys))!=-1){
+                os.write(bys);
+                os.flush();
+            }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try{
+                is.close();
+                os.close();
+            }catch (IOException e1){
+                e1.printStackTrace();
+            }
+        }
+    }
+}
