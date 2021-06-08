@@ -1,0 +1,29 @@
+import java.util.Scanner;
+//输入几个数 并输出该数，偶数和，判断数的奇偶
+public class ggg {
+
+    public static void main(String[] args) {
+        int[] arr = new int[5];  //声明并定义一个数组
+        int sum = 0;
+        Scanner sc = new Scanner(System.in);
+//循环输入整数类型数据 fori
+        for (int i = 0; i < 5; i++) {
+            arr[i] = sc.nextInt();
+        }
+//遍历数组，并判断是否为偶数
+        for (int i = 0; i < 5; i++) {
+            if (arr[i] % 2 == 0)
+                System.out.println("yes");
+            else
+                System.out.println("no");
+        }
+        for (int i = 0; i < 5; i++) {
+            if (arr[i] % 2 == 0)
+                sum += arr[i];
+        }
+        System.out.println("偶数和为：" + sum);
+    }
+}
+
+//提要：先定义声明数组，sum前赋值零 后用于相加 ，弄一个输入型scanner 将输入数字存在定义的数组，在几个循环搞定遍历并判断
+//最终相加 sum +=（等于后面数组相加）arr[i]（这个数组）
